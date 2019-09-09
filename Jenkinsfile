@@ -27,5 +27,14 @@ pipeline {
                                }
                         }
                 }
+                stage('Artifactory'){
+                        steps { 
+                                echo 'creating Artifacts'
+                           always {
+                               archiveArtifacts artifacts: 'happytrip-1.0.0-BUILD-SNAPSHOT.war',
+                               onlyIfSuccessful: true
+                        }
+                      }
+                }
              }       
 }
