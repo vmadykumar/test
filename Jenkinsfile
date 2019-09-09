@@ -10,7 +10,7 @@ pipeline {
                }
         stages {
                 stage('checkout'){
-                        echo 'Checking out Code'
+                        
                         steps {
                                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/vmadykumar/Spring-Boot.git']]])
                         }
