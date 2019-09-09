@@ -20,9 +20,11 @@ pipeline {
                 }
                 stage('sonar analysis') {
                         steps {
+                                dir('Code') {
                                 withSonarQubeEnv('sonar server') {
                                        bat 'mvn sonar:sonar'  
                                 }
+                               }
                         }
                 }
              }       
