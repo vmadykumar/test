@@ -22,7 +22,7 @@ pipeline {
                         steps {
                                 dir('Code') {
                                        withSonarQubeEnv('sonar server') 
-                                       bat 'SONAR_MAVEN_GOAL'
+                                       bat 'mvn $SONAR_MAVEN_GOAL'
                                 }
                         }
                 }
