@@ -14,7 +14,7 @@ pipeline {
                         steps{
                           dir('Code') {
                               echo 'hello, maven'
-                               sh 'mvn clean verify'
+                              bat 'mvn clean verify'
                              } 
                         }
                 }     
