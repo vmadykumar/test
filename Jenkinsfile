@@ -1,5 +1,9 @@
 pipeline {
         agent any
+        tools {
+                   jdk 'JAVA_HOME'
+                   maven 'maven'      
+               }
         stages {
           stage('checkout'){
              steps {
@@ -7,16 +11,20 @@ pipeline {
                    }
                 }
                 stage('build') {
-                        tools {
-                          jdk 'JAVA_HOME'
-                          maven 'maven'      
-                        }
-                        steps{
+                        steps {
                           dir('Code') {
                               echo 'hello, maven'
-                              bat 'mvn clean verify'
+                              bat 'mvn package'
                              } 
+                        }                      
+                }
+                stage('sonar analysis') {
+                        steps {
+                                dir('Code') {
+                                       withSonarQubeEnv('SonarQube6.4') 
+                                       bat '$SONAR_MAVEN_GOAL'
+                                }
                         }
-                }     
+                }
              }       
 }
