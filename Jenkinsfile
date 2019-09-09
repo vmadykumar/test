@@ -21,7 +21,7 @@ pipeline {
                 stage('sonar analysis') {
                         steps {
                                 dir('Code') {
-                                       withSonarQubeEnv('SonarQube6.4') 
+                                       withSonarQubeEnv('sonar server') 
                                        bat '$SONAR_MAVEN_GOAL'
                                 }
                         }
