@@ -1,10 +1,10 @@
-Pipeline{
+pipeline {
         agent any
-        stages{
+        stages {
           stage('checkout'){
-             steps{
+             steps {
                     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/vmadykumar/Spring-Boot.git']]])
-                  }
+                   }
                 }
              }       
 }
