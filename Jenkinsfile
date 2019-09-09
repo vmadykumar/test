@@ -13,7 +13,8 @@ pipeline {
                         }
                         steps{
                           dir('https://github.com/vmadykumar/Spring-Boot/tree/master/Code') {
-                              sh 'mvn package'
+                              echo 'hello, maven'
+                               sh 'mvn clean verify'
                              } 
                         }
                 }     
