@@ -32,8 +32,7 @@ pipeline {
                                 dir('Code') {
                                 echo 'creating Artifacts'
                            always {
-                               archiveArtifacts: 'target/*.war',
-                               onlyIfSuccessful: true
+                               archiveArtifacts: 'target/*.war'
                         }
                                 echo 'Artifact created'
                         }
