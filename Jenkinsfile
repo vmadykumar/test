@@ -31,9 +31,7 @@ pipeline {
                         steps { 
                                 dir('Code') {
                                 echo 'creating Artifacts'
-                           always {
-                               archiveArtifacts: 'target/*.war'
-                        }
+                                archiveArtifacts 'target/*.war'
                                 echo 'Artifact created'
                         }
                       }
