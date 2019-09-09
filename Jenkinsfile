@@ -6,5 +6,16 @@ pipeline {
                     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/vmadykumar/Spring-Boot.git']]])
                    }
                 }
+                stage('build') {
+                        tools {
+                          jdk 'JAVA_HOME'
+                          maven 'maven'      
+                        }
+                        steps{
+                          dir('https://github.com/vmadykumar/Spring-Boot/tree/master/Code') {
+                              sh 'mvn package'
+                             } 
+                        }
+                }     
              }       
 }
