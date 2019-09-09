@@ -29,10 +29,10 @@ pipeline {
                 }
                 stage('Artifactory'){
                         steps { 
-                                dir('Code\target') {
+                                dir('Code') {
                                 echo 'creating Artifacts'
                            always {
-                               archiveArtifacts artifacts: 'happytrip-1.0.0-BUILD-SNAPSHOT.war',
+                               archiveArtifacts artifacts: 'target/*.war',
                                onlyIfSuccessful: true
                         }
                                 echo 'Artifact created'
