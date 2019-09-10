@@ -45,13 +45,13 @@ pipeline {
                                 }
                          }
                  }
-                stage('Approval'){
+                stage('Approval Step'){
                                    when {
                                         expression { params.Release == true}
                                    }
                                    steps{
                                            script {  
-                                                approved = input message: 'Release to production?', ok: 'Yes', submitter: 'PME'
+                                                approved = input message: 'Approve Deploy?', ok: 'Yes', submitter: 'PME'
                                                 if (approved) {
                                                          withCredentials([usernamePassword(credentialsId: 'privilegedCreds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                                                                         echo "Approved"
