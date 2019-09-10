@@ -50,12 +50,14 @@ pipeline {
                                         expression { param.Release == True}
                                    }
                                    steps{
-                                        approved = input message: 'Release to production?', ok: 'Yes', submitter: 'PME'
-                                        if (approved) {
+                                           script {  
+                                                approved = input message: 'Release to production?', ok: 'Yes', submitter: 'PME'
+                                                if (approved) {
                                                          withCredentials([usernamePassword(credentialsId: 'privilegedCreds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                                                                         echo "Approved"
-                                                        }
-                                         }
+                                                         }
+                                                }
+                                           }
                                   }
                 }
                 stage('Release'){
