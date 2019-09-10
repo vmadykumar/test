@@ -69,7 +69,10 @@ pipeline {
                         }
                 }
                 stage('Notification') {
-                        emailext body: 'Build Suceeded', subject: 'Jenkins Job Status', to: 'vikash.bcet@gmail.com'
+                        steps {
+                                echo 'Sending Email'
+                                emailext body: 'Build Suceeded', subject: 'Jenkins Job Status', to: 'vikash.bcet@gmail.com'
+                        }
                 }
         }       
 }
