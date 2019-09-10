@@ -53,6 +53,7 @@ pipeline {
                                            script {  
                                                 env.approved = input message: 'Approve Deploy?', ok: 'Yes', submitter: 'PME'
                                                 echo "${env.approved}"
+                                                echo ("User Input is: "+env.approved['env'])
                                                 }
                                            }
                                   }
