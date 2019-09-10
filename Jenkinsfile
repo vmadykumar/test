@@ -51,9 +51,9 @@ pipeline {
                                    }
                                    steps{
                                            script {  
-                                                def approved = input message: 'Approve Deploy?', ok: 'Yes', submitter: 'PME'
-                                                echo ("User input: "+approved['Deploy'])
-                                                if (approved) {
+                                                env.approved = input message: 'Approve Deploy?', ok: 'Yes', submitter: 'PME'
+                                                echo "${env.approved}"
+                                                if (env.approved) {
                                                          withCredentials([usernamePassword(credentialsId: 'privilegedCreds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                                                                         echo "Deployment Approved"
                                                          }
