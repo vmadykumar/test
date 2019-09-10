@@ -25,7 +25,7 @@ pipeline {
                 }
                 stage('sonar analysis') {
                         when {
-                                expression { params.Run_SonarAnalysis == True}
+                                expression { params.Run_SonarAnalysis == true}
                         }
                         steps { 
                                 dir('Code') {
@@ -47,7 +47,7 @@ pipeline {
                  }
                 stage('Approval'){
                                    when {
-                                        expression { params.Release == True}
+                                        expression { params.Release == true}
                                    }
                                    steps{
                                            script {  
@@ -63,7 +63,7 @@ pipeline {
                 stage('Release'){
                                 agent any
                                 when {
-                                        expression { params.Release == True }
+                                        expression { params.Release == true }
                                 }
                         steps {
                                 echo 'Starting Release'
