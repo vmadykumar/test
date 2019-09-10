@@ -68,11 +68,5 @@ pipeline {
                                 deploy adapters: [tomcat7(credentialsId: '1363756c-b4e2-495b-b925-fc8572d5962f', path: '', url: 'http://172.30.11.187:8081')], contextPath: '/HappyTrip', war: '**/*.war'
                         }
                 }
-                stage('Notification') {
-                        steps {
-                                echo 'Sending Email'
-                                emailext body: 'Build Suceeded', subject: 'Jenkins Job Status', to: 'vikash.bcet@gmail.com'
-                        }
-                }
         }       
 }
