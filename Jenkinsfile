@@ -1,6 +1,6 @@
 pipeline {
         agent any
-        parameter {
+        parameters {
                 booleanParam(name: 'Run_SonarAnalysis', defaultValue: false, description: 'Will Run Sonar Code Analysis')
                 booleanParam(name: 'Release', defaultValue: false, description: 'Will Push code to the Server')             
         }
