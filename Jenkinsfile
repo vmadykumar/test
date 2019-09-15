@@ -73,7 +73,8 @@ pipeline {
                                 emailext body: 'Build Suceeded', subject: 'Jenkins Job Status', to: 'vikash.bcet@gmail.com'
                         }
                 }
-                post {
+        }
+        post {
                         always {
                                 echo 'One way or another, I have finished'
                                 deleteDir() /* clean up our workspace */
@@ -96,6 +97,5 @@ pipeline {
                         changed {
                                 echo 'Things were different before...'
                         }
-                }
-        }       
+        }
 }
