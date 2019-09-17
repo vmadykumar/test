@@ -82,18 +82,14 @@ pipeline {
                         }
                         success {
                                 echo 'Yeppie.. I succeeeded!'
-                                mail to: 'vikash.bcet@gmail.com',
-                                        subject: "Succeeded Pipeline: ${currentBuild.fullDisplayName}",
-                                        body: "Everything went well :) ${env.BUILD_URL}"
+                                emailext body: 'Everything went well :) ${env.BUILD_URL}', subject: 'Succeeded Pipeline: ${currentBuild.fullDisplayName}', to: 'vikash.bcet@gmail.com'
                         }
                         unstable {
                                 echo 'Oh! No I am unstable :/'
                         }
                         failure {
                                 echo 'Shit.. I failed :('
-                                mail to: 'vikash.bcet@gmail.com',
-                                        subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-                                        body: "Something is wrong with ${env.BUILD_URL}"
+                                emailext body: 'Something is wrong with ${env.BUILD_URL}', subject: 'Failed Pipeline: ${currentBuild.fullDisplayName}', to: 'vikash.bcet@gmail.com'
                         }
                         changed {
                                 echo 'Things were different before...'
