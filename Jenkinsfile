@@ -64,7 +64,7 @@ pipeline {
                                 }
                         steps {
                                 echo 'Starting Release'
-                                deploy adapters: [tomcat7(credentialsId: '51d79b50-5fd8-4444-91eb-c6ead7dc4151', path: '', url: 'http://172.28.99.129:8081')], contextPath: '/HappyTrip', war: 'Code/target/*.war'
+                                deploy adapters: [tomcat7(credentialsId: '51d79b50-5fd8-4444-91eb-c6ead7dc4151', path: '', url: 'http://172.30.13.143:8081')], contextPath: '/HappyTrip', war: 'Code/target/*.war'
                                 echo 'Release Completed'
                         }
                 }
